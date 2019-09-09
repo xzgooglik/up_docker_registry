@@ -28,3 +28,6 @@ certs_data = str(	cmd_line + "\n"
 certs_file.write(certs_data)
 certs_file.close()
 
+os.system("docker-compose build")
+os.system("docker-compose up")
+
