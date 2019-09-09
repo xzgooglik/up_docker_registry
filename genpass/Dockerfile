@@ -1,3 +1,5 @@
 FROM registry:latest
 WORKDIR /data
-CMD htpasswd -Bbn mainuser mainpassword > passfile
+ADD auth.txt .
+RUN chmod +x auth.txt
+CMD ./auth.txt

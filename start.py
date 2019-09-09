@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import os
 
 os.system("command")
@@ -27,6 +28,9 @@ certs_data = str(	cmd_line + "\n"
 			"cp -r "+ dir1 + domain + " " + dir2 + "\n")
 certs_file.write(certs_data)
 certs_file.close()
+
+os.system("chmod -R 777 ./genpass/")
+os.system("chmod -R 777 ./certs/")
 
 os.system("docker-compose build")
 os.system("docker-compose up")

@@ -1,1 +1,1 @@
-htpasswd -Bbn root passwd > passfile
+htpasswd -Bbn admin passwd > passfile
