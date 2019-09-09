@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+
+      genpass:
+        build: ./genpass
+        container_name: genpass
+        volumes:
+         - ./genpass:/data
+      certs:
+        container_name: certs
+        build: ./certs
+        ports:
+         - "80:80"
+         - "443:443"
+        volumes:
+         - ./certs:/data
+         - ./letsencrypt:/crtdata

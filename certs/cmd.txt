@@ -1,7 +1,6 @@
 certbot certonly --standalone --preferred-challenges http --non-interactive  --staple-ocsp --agree-tos -m dmchernov@pearsolution.com.ua -d reg3.lenex.com.ua
-cd /etc/letsencrypt/live/reg3.lenex.com.ua 
-cp privkey.pem domain.key 
-cat cert.pem chain.pem > domain.crt 
-chmod 777 domain.key
-chmod 777 domain.crt
-cp -r /etc/letsencrypt/live/reg3.lenex.com.ua /crtdata/
+cd /etc/letsencrypt/live/reg3.lenex.com.ua
+cp ./privkey.pem ./domain.key
+cat ./cert.pem ./chain.pem > ./domain.crt
+cp -r /etc/letsencrypt/live/reg3.lenex.com.ua/ /crtdata/
+chmod -R 777 /crtdata/
