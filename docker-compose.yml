@@ -6,6 +6,16 @@ services:
         container_name: genpass
         volumes:
          - ./genpass:/data
+
+      certs:
+        container_name: certs
+        build: ./certs
+        ports:
+         - "80:80"
+         - "443:443"
+        volumes:
+         - ./certs:/data
+         - ./letsencrypt:/crtdata
     
       registry:
         restart: always
@@ -19,5 +29,5 @@ services:
                 REGISTRY_AUTH_HTPASSWD_PATH: /var/lib/registry/passfile
                 REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
         volumes:
-            - ./letsencrypt/reg3.lenex.com.ua:/certs 
+            - ./letsencrypt/registry.lenex.com.ua:/certs 
             - ./genpass/:/var/lib/registry
