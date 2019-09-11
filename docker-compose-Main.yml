@@ -1,21 +1,5 @@
 version: "3.7"
 services:
-
-      genpass:
-        build: ./genpass
-        container_name: genpass
-        volumes:
-         - ./genpass:/data
-
-      certs:
-        container_name: certs
-        build: ./certs
-        ports:
-         - "80:80"
-         - "443:443"
-        volumes:
-         - ./certs:/data
-         - ./letsencrypt:/crtdata
     
       registry:
         restart: always
@@ -26,8 +10,11 @@ services:
                 REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
                 REGISTRY_HTTP_TLS_KEY: /certs/domain.key
                 REGISTRY_AUTH: htpasswd
+                REGISTRY_HTTP_SECRET: /var/lib/registry/passfile
                 REGISTRY_AUTH_HTPASSWD_PATH: /var/lib/registry/passfile
                 REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+                REGISTRY_STORAGE_CACHE_BLOBDESCRIPTOR: redis
+                REGISTRY_REDIS_ADDR: redis:6379
         volumes:
-            - ./letsencrypt/registry.lenex.com.ua:/certs 
-            - ./genpass/:/var/lib/registry
+            - ./letsencrypt11/registry.lenex.com.ua:/certs/ 
+            - ./genpass/:/var/lib/registry/

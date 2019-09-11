@@ -1,1 +1,1 @@
-htpasswd -Bbn admin passwd > passfile
+htpasswd -Bbn admin lelikbolik2091 > passfile

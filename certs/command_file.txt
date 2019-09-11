@@ -1,5 +1,5 @@
-certbot certonly --standalone --preferred-challenges http --non-interactive  --staple-ocsp --agree-tos -m fgd@fg.us -d reg3.lenex.com.ua
-cd /etc/letsencrypt/live/reg3.lenex.com.ua
+certbot certonly --standalone --preferred-challenges http --non-interactive  --staple-ocsp --agree-tos -m dm@gmail.com -d registry.lenex.com.ua
+cd /etc/letsencrypt/live/registry.lenex.com.ua
 cp ./privkey.pem ./domain.key 
 cat ./cert.pem ./chain.pem > ./domain.crt 
-cp -r /etc/letsencrypt/live/reg3.lenex.com.ua crtdata/
+cp -r /etc/letsencrypt/live/registry.lenex.com.ua /crtdata/
